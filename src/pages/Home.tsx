@@ -19,10 +19,13 @@ export function Home() {
     setTasks(oldSate => [...oldSate, data])
     //TODO - add new task
   }
+  function handleEditTask(taskId: number, taskNewTitle: string){
+    
+  }
 
   function handleToggleTaskDone(id: number) {
 
-    //const updatedTasks = tasks.map(task => ({ ...task }))
+    const updatedTasks = tasks.map(task => ({ ...task }))
     //TODO - toggle task done if exists
   }
 
