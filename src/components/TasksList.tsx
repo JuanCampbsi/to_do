@@ -1,5 +1,12 @@
 import React from 'react';
-import { FlatList, Image, TouchableOpacity, View, Text, StyleSheet, FlatListProps } from 'react-native';
+import { 
+  FlatList,
+  Image, 
+  TouchableOpacity, 
+  View, 
+  Text, 
+  StyleSheet, 
+  FlatListProps } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import { ItemWrapper } from './ItemWrapper';
@@ -18,7 +25,7 @@ interface TasksListProps {
   removeTask: (id: number) => void;
 }
 
-export function TasksList({ tasks, toggleTaskDone, removeTask }: TasksListProps) {
+export function TasksList({ tasks, toggleTaskDone, removeTask, /*handleEditTask*/ }: TasksListProps) {
   return (
     <FlatList
       data={tasks}

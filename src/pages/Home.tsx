@@ -41,8 +41,26 @@ export function Home() {
 
   function handleRemoveTask(id: number) {
     const updatedTasks = tasks.filter(tasks => tasks.id !== id);
-    
-    setTasks(updatedTasks);
+
+    Alert.alert(
+      'Remover item',
+      'Tem certeza que você deseja remover esse item?',
+      [
+        {text: 'Sim', onPress: () => setTasks(updatedTasks)},
+        {text: 'Não', style: 'cancel'},
+      ]
+    ) 
+  }
+
+  function handleEditTask(taskId: number, taskNewTitle: string){
+    const updateEditTask = tasks.map(task => ({...task}))
+
+    const foundItem = updateEditTask.find(item => item.id === taskId)
+    if(!foundItem)
+      return;
+    foundItem.title = taskNewTitle;
+    setTasks(updateEditTask);
+
   }
 
   return (
