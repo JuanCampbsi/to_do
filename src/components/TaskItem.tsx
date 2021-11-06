@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
     Image,
     TouchableOpacity,
     View,
     Text,
     StyleSheet,
+    TextInput,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import trashIcon from '../assets/icons/trash/trash.png'
@@ -19,8 +20,22 @@ interface taskItemProps {
 }
 
 export function TaskItem({ tasks, toggleTaskDone, removeTask }: taskItemProps) {
+  const [editItem, setEditItem ]= useState(false);
+  const [taskEditItem, setTaskEditItem ]= useState<Task[]>();
+  const textInputRef = useRef<TextInput>(null);
+
+  function handleStartEditing(){
+   
+  }
+
+  function handleCancelEditing(){
+
+  }
+  function handleSubmitEditing(){
+
+  }
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+        <View style={styles.taskItemAlign}>
             <View>
                 <TouchableOpacity
                     activeOpacity={0.7}
@@ -95,5 +110,10 @@ const styles = StyleSheet.create({
         color: '#1DB863',
         textDecorationLine: 'line-through',
         fontFamily: 'Inter-Medium'
+    },
+    taskItemAlign: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between' 
     }
 })
